@@ -104,10 +104,6 @@ export const TaskCard = ({
           <Calendar size={12} />
           <span>{new Date(task.createdAt).toLocaleDateString("pt-BR")}</span>
         </div>
-
-        {task.createdAt !== task.updatedAt && (
-          <span className="text-blue-600">Editado</span>
-        )}
       </div>
     </motion.div>
   );

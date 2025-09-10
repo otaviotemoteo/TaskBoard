@@ -2,8 +2,8 @@ import { Board } from "@/types/task";
 
 export const mockBoard: Board = {
   id: "board-1",
-  title: "Meu Projeto",
-  description: "Board principal do projeto",
+  title: "Tarefas - Setembro",
+  description: "Board de tasks para o mês de setembro",
   userId: "user-1",
   createdAt: new Date(),
   updatedAt: new Date(),

@@ -141,24 +141,31 @@ export const TaskBoard = ({ initialBoard }: TaskBoardProps) => {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6">
+          {/* Títulos e informações do board */}
+          <div className="flex flex-col">
+            <h1 className="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
               {board.title}
             </h1>
-            <p className="text-gray-600">{board.description}</p>
-            <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
-              <span>{board.stages.length} estágios</span>
-              <span>•</span>
-              <span>{board.tasks.length} tasks</span>
+            <p className="text-gray-600 text-lg">{board.description}</p>
+            <div className="flex items-center gap-3 mt-3 text-sm text-gray-500 font-medium">
+              <span>
+                {board.stages.length} Estágio
+                {board.stages.length > 1 ? "s" : ""}
+              </span>
+              <span className="text-gray-300">•</span>
+              <span>
+                {board.tasks.length} Task{board.tasks.length > 1 ? "s" : ""}
+              </span>
             </div>
           </div>
 
+          {/* Botão Novo Estágio */}
           <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setCreateStageModalOpen(true)}
-            className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+            className="mt-4 sm:mt-0 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
           >
             <Plus size={20} />
             Novo Estágio
