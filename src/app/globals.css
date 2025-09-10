@@ -1,5 +1,8 @@
-/* Define CSS variables for light mode */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* suas variáveis e customizações */
 :root {
   --background: 0 0% 100%; /* white */
   --foreground: 240 10% 3.9%; /* dark gray */
@@ -8,7 +11,6 @@
   --ring: 240 5% 64.9%;
 }
 
-/* Optional: dark mode */
 .dark {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 100%;
