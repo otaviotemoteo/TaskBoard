@@ -10,6 +10,31 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
+interface SortableTaskProps {
+  task: Task;
+  onEdit: (task: Task) => void;
+  onDelete: (taskId: string) => void;
+}
+
+function SortableTask({ task, onEdit, onDelete }: SortableTaskProps) {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: task.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    cursor: "grab",
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      <TaskCard task={task} onEdit={onEdit} onDelete={onDelete} />
+    </div>
+  );
+}
 
 interface StageProps {
   stage: StageType;
@@ -114,7 +139,9 @@ export const Stage = ({
                   delay: index * 0.05,
                 }}
               >
-                <TaskCard
+                {/* <-- Aqui substituímos TaskCard direto por SortableTask -->
+               O SortableTask já aplica useSortable, então o drag funciona */}
+                <SortableTask
                   task={task}
                   onDelete={onDeleteTask}
                   onEdit={onEditTask}
