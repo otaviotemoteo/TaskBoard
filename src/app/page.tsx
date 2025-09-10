@@ -1,17 +1,12 @@
-import "../app/globals.css";
-import { BentoGrid, BentoGridItem } from "@/magicui/bento-grid";
+"use client";
 
-export default function Home() {
+import { TaskBoard } from "@/components/TaskBoard";
+import { mockBoard } from "@/data/mockData";
+
+export default function HomePage() {
   return (
-    <main className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Magic UI - BentoGrid Demo</h1>
-      <BentoGrid>
-        <BentoGridItem>Item 1</BentoGridItem>
-        <BentoGridItem>Item 2</BentoGridItem>
-        <BentoGridItem>Item 3</BentoGridItem>
-        <BentoGridItem>Item 4</BentoGridItem>
-        <BentoGridItem>Item 5</BentoGridItem>
-      </BentoGrid>
+    <main>
+      <TaskBoard initialBoard={mockBoard} />
     </main>
   );
 }
